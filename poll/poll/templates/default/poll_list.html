@@ -1,0 +1,19 @@
+{% extends "default/base.html" %}
+
+{% block title %}投票主題列表{% endblock %}
+
+{% block content %}
+    <h2>投票主題列表</h2>
+    <p><a href="{% url 'poll_create' %}">新增投票主題</a></p>
+    <ul>
+        {% for poll in poll_list %}
+            <li>
+                {{ poll.created }} - 
+                <a href="{% url 'poll_view' poll.id %}">{{ poll.subject }}</a>
+                (<a href="{% url 'poll_edit' poll.id %}">修改</a>)
+            </li>
+        {% empty %}
+            <li>尚無投票主題</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

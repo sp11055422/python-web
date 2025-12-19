@@ -1,0 +1,22 @@
+{% extends "default/base.html" %}
+
+{% block title %}投票詳細{% endblock %}
+
+{% block content %}
+    <h2>{{ poll.subject }}</h2>
+    <p>{{ poll.desc }}</p>
+
+    <h3>選項</h3>
+    <ul>
+        {% for option in option_list %}
+            <li>
+                {{ option.title }} — {{ option.votes }}  
+                <a href="{% url 'poll_vote' option.id %}">投票</a>
+            </li>
+        {% empty %}
+            <li>尚無選項</li>
+        {% endfor %}
+    </ul>
+
+    <p><a href="{% url 'poll_list' %}">回到列表</a></p>
+{% endblock %}

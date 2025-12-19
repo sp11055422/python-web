@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{% block title %}線上投票{% endblock %}</title>
+</head>
+<body>
+	<header>
+		<h1><a href="{% url 'poll_list' %}">線上投票系統</a></h1>
+	</header>
+	<main>
+		{% block content %}{% endblock %}
+	</main>
+</body>
+</html>
